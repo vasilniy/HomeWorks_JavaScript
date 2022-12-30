@@ -86,8 +86,4 @@ if (!isNaN(numberDigit) && numberDigitFirst > 100) {
       ", единиц: " +
       units
   );
-}
-else
-  console.log(
-    "Число не трехзначное!"
-  );
+} else console.log("Число не трехзначное!");
