@@ -61,7 +61,7 @@ console.log(sum(2, 6)); должно вывести число 8 в консол
 const Addition = (num1, num2) => num1 + num2; // сложение
 const Multiplication = (num1, num2) => num1 * num2; // умножение
 const Division = (num1, num2) => num1 / num2; // деление
-function Difference(num1, num2) {
+function Difference(num1, num2) { // разность
   let result = 0;
   if (num1 != num2) {
     if (num1 > num2) {
