@@ -25,7 +25,7 @@ else {
 
 //Задание №3. Пользователь с клавиатуры вводит 3 числа, необходимо создать функцию,
 // которая определяет максимальное значение среди этих чисел
-
+/*
 function FindMaxNumber(num1, num2, num3) {
   let max = num1;
   if (num2 > max) max = num2;
@@ -42,6 +42,7 @@ console.log(
   "Максимальное значение среди этих чисел = " +
     FindMaxNumber(numFisrt, numSecond, numThird)
 );
+*/
 
 // Задание №4.
 /*
