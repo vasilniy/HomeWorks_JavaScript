@@ -34,12 +34,14 @@ function FindMaxNumber(num1, num2, num3) {
   return max;
 }
 
-const numFisrt = +prompt('Введите первое целое число');
-const numSecond = +prompt('Введите второе целое число');
-const numThird = +prompt('Введите третье целое число');
-console.log('Вы ввели = ' + numFisrt + ', ' + numSecond + ', ' + numThird);
-console.log('Максимальное значение среди этих чисел = ' + FindMaxNumber(numFisrt, numSecond, numThird));
-
+const numFisrt = +prompt("Введите первое целое число");
+const numSecond = +prompt("Введите второе целое число");
+const numThird = +prompt("Введите третье целое число");
+console.log("Вы ввели = " + numFisrt + ", " + numSecond + ", " + numThird);
+console.log(
+  "Максимальное значение среди этих чисел = " +
+    FindMaxNumber(numFisrt, numSecond, numThird)
+);
 
 // Задание №4.
 /*
