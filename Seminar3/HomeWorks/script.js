@@ -84,3 +84,23 @@ console.log('Умножение ' + Multiplication(numFisrt, numSecond));
 console.log('Деление ' + Division(numFisrt, numSecond));
 console.log('Разность ' + Difference(numFisrt, numSecond));
 */
+
+
+// Задание №5. Простое число или нет.
+
+function primeNumber (number) {
+  let count = 0;
+  let num = number;
+  for (let index = 2; index <= number; index++) {
+    num = number % index;
+    if (num === 0) count++;    
+  }
+  return count;
+}
+
+const numFisrt = +prompt('Введите целое число');
+if (primeNumber(numFisrt) === 1) {
+  console.log('Введенное число ' + numFisrt + ' - простое');
+} else {
+console.log('Введенное число ' + numFisrt + ' - не является простым');
+}
