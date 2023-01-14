@@ -25,7 +25,7 @@ else {
 
 //Задание №3. Пользователь с клавиатуры вводит 3 числа, необходимо создать функцию,
 // которая определяет максимальное значение среди этих чисел
-/*
+
 function FindMaxNumber(num1, num2, num3) {
   let max = num1;
   if (num2 > max) max = num2;
@@ -37,9 +37,9 @@ function FindMaxNumber(num1, num2, num3) {
 const numFisrt = +prompt('Введите первое целое число');
 const numSecond = +prompt('Введите второе целое число');
 const numThird = +prompt('Введите третье целое число');
-
+console.log('Вы ввели = ' + numFisrt + ', ' + numSecond+ ', ' + numThird);
 console.log('Максимальное значение среди этих чисел = ' + FindMaxNumber(numFisrt, numSecond, numThird));
-*/
+
 
 // Задание №4.
 /*
@@ -57,7 +57,7 @@ console.log(sum(2, 6)); должно вывести число 8 в консол
 вернуть 0, если числа равны.
 Функциям всегда передаются корректные числа, проверки на NaN, Infinity делать
 не нужно.*/
-
+/*
 const Addition = (num1, num2) => num1 + num2; // сложение
 const Multiplication = (num1, num2) => num1 * num2; // умножение
 const Division = (num1, num2) => num1 / num2; // деление
@@ -80,3 +80,4 @@ console.log('Сложение ' + Addition(numFisrt, numSecond));
 console.log('Умножение ' + Multiplication(numFisrt, numSecond));
 console.log('Деление ' + Division(numFisrt, numSecond));
 console.log('Разность ' + Difference(numFisrt, numSecond));
+*/
