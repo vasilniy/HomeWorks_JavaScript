@@ -91,7 +91,7 @@ console.log('Разность ' + Difference(numFisrt, numSecond));
 function primeNumber (number) {
   let count = 0;
   let num = number;
-  for (let index = 2; index <= number; index++) {
+  for (let index = 1; index <= number; index++) {
     num = number % index;
     if (num === 0) count++;    
   }
@@ -99,7 +99,7 @@ function primeNumber (number) {
 }
 
 const numFisrt = +prompt('Введите целое число');
-if (primeNumber(numFisrt) === 1) {
+if (primeNumber(numFisrt) < 3) {
   console.log('Введенное число ' + numFisrt + ' - простое');
 } else {
 console.log('Введенное число ' + numFisrt + ' - не является простым');
