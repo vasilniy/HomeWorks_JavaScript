@@ -35,7 +35,48 @@ console.log(array);
 2. Найти минимальное число
 3. Найти есть ли в этом массиве число 3          */
 
+/*
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+function getSumm(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum = arr[i] + sum;    
+  }
+  return sum;
+}
+function getMin(arr) {
+  let min = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < min) min = arr[i];    
+  } 
+  return min;
+}
+function findNumber(arr) {
+  let find = false;
+  for (let i = 0; i < arr.length; i++) {    
+    if (arr[i] == 3) {
+      find = true;      
+    }     
+  }
+  if (find) {console.log('В данном массиве есть число 3');
+  }
+  else console.log('В данном массиве числа 3 нет');   
+}
 
+const myArray = [];
+for (let i = 0; i < 5; i++) {
+  myArray.push(getRandomNumber(0 , 10)); 
+}
+
+console.log(myArray);
+
+console.log('Сумма всех элементов = ' + getSumm(myArray));
+console.log('Минимальное число = ' + getMin(myArray));
+findNumber(myArray);
+
+*/
 
 /*
 Задание №4.
