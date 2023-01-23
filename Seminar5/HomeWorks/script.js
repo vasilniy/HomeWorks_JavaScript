@@ -120,6 +120,10 @@ const products = [
 ];
 
 
+  
+
+//console.log(result);
+
 /*
 5. Дано 2 массива
 const en = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
