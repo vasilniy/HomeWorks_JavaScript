@@ -119,14 +119,11 @@ const products = [
       },
 ];
 
-const result = products.filter(function (myPhoto) {
-  return myPhoto.photos;
-}).filter(function(my){ return my.photos.length != 0});
-
-
-  
-
+const result = products.filter(myPhoto => myPhoto.photos).filter(my => my.photos.length != 0);
 console.log(result);
+console.log(' ');
+
+
 
 /*
 5. Дано 2 массива
