@@ -26,7 +26,8 @@ for (const key in numbers) {
 const post = {
     author: "John", // вывести этот текст
     postId: 23,
-    comments: [
+    comments: 
+    [
       {
         userId: 10,
         userName: "Alex",
@@ -48,7 +49,7 @@ const post = {
     ],
 }             
 
-*/
+
 
 /*
 3 Дан массив products, необходимо цену каждого продукта уменьшить на 15% используя
