@@ -33,8 +33,8 @@ const post = {
         userName: "Alex",
         text: "lorem ipsum",
         rating: {
-        likes: 10,
-        dislikes: 2, // вывести это число
+          likes: 10,
+          dislikes: 2, // вывести это число
         },
       },
       {
@@ -42,13 +42,16 @@ const post = {
         userName: "Jane",
         text: "lorem ipsum 2", // вывести этот текст
         rating: {
-        likes: 3,
-        dislikes: 1,
+          likes: 3,
+          dislikes: 1,
         },
       },
     ],
 }             
 
+console.log(post);
+console.log(post.author);
+console.log(post.comments.);
 
 
 /*
