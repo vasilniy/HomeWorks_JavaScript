@@ -50,8 +50,10 @@ const post = {
 }             
 
 console.log(post);
-console.log(post.author);
-console.log(post.comments.);
+console.log('author: "John" ' + post.author);
+console.log('dislikes: 2 ' + post.comments[0].rating.dislikes);
+console.log('userId: 5 ' + post.comments[1].userId);
+console.log('text: "lorem ipsum 2" ' + post.comments[1].text);
 
 
 /*
