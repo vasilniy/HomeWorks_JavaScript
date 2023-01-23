@@ -23,6 +23,7 @@ for (const key in numbers) {
 2. Необходимо из объекта, который лежит в константе post вывести значения, к
 которым приписан комментарий, в консоль. */
 
+/*
 const post = {
     author: "John", // вывести этот текст
     postId: 23,
@@ -50,11 +51,11 @@ const post = {
 }             
 
 console.log(post);
-console.log('author: "John" ' + post.author);
-console.log('dislikes: 2 ' + post.comments[0].rating.dislikes);
-console.log('userId: 5 ' + post.comments[1].userId);
-console.log('text: "lorem ipsum 2" ' + post.comments[1].text);
-
+console.log('author: "John" = ' + post.author);
+console.log('dislikes: 2 = ' + post.comments[0].rating.dislikes);
+console.log('userId: 5 = ' + post.comments[1].userId);
+console.log('text: "lorem ipsum 2" = ' + post.comments[1].text);
+*/
 
 /*
 3 Дан массив products, необходимо цену каждого продукта уменьшить на 15% используя
