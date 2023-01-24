@@ -122,6 +122,8 @@ const products = [
 const result = products.filter(myPhoto => myPhoto.photos).filter(my => my.photos.length != 0);
 console.log(result);
 console.log(' ');
+const result2 = products.sort(( a, b ) => a.price - b.price);
+console.log(result2);
 
 
 
