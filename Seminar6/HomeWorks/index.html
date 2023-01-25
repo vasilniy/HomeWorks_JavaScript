@@ -46,13 +46,19 @@
       */
 
       const changeElLink = document.querySelectorAll('.card-link');
-      
+      for (let i = 0; i < changeElLink.length; i++) {
+        changeElLink[i].textContent = 'ссылка';        
+      }
       console.log(changeElLink);
 
       /*
       3. Найти все элементы на странице с классом "card-link", которые лежат в
       элементе с классом "card-body" и вывести полученную коллекцию в консоль.
       */
+
+      const findCardBody = document.querySelector('.card-body');
+      const findCardLink = findCardBody.querySelectorAll('.card-link');
+      console.log(findCardLink);
 
       /*
       4. Найти первый попавшийся элемент на странице у которого есть атрибут
