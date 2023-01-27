@@ -68,8 +68,9 @@
       data-number со значением 50 и вывести его в консоль.
       */
       
-      const findAttribute = document.querySelector('[data-number]').getAttribute('data-number');     
+      const findAttribute = document.querySelector('[data-number = "50"]');   
       console.log(findAttribute);
+      console.log(findAttribute.getAttribute('data-number'));
       console.log('');
 
       
@@ -105,6 +106,10 @@
 
       //document.querySelector('h6').remove('h6');
 
+
+
+
+      
       /*
       9. Создайте мини приложение "Гадалку" (не обязательное)
 
