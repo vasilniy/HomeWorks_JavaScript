@@ -39,6 +39,7 @@
       */
      const FindIdSuperLink = document.getElementById('super_link');
      console.log(FindIdSuperLink);
+     console.log(' ');
 
       /*
       2. Внутри всех элементов на странице, которые имеют класс "card-link",
@@ -50,6 +51,7 @@
         changeElLink[i].textContent = 'ссылка';        
       }
       console.log(changeElLink);
+      console.log(' ');
 
       /*
       3. Найти все элементы на странице с классом "card-link", которые лежат в
@@ -59,15 +61,26 @@
       const findCardBody = document.querySelector('.card-body');
       const findCardLink = findCardBody.querySelectorAll('.card-link');
       console.log(findCardLink);
+      console.log(' ');
 
       /*
       4. Найти первый попавшийся элемент на странице у которого есть атрибут
       data-number со значением 50 и вывести его в консоль.
       */
+      
+      const findAttribute = document.querySelector('.card-body');
+      console.log(findAttribute.querySelector('[data-number]').getAttribute('data-number'));
+      //const findAttribute = document.querySelector('[data-number]');
+      //console.log(findAttribute.getAttribute('data-number'));
+      console.log('');
 
       /*
       5. Выведите содержимое тега title в консоль.
       */
+
+      const getTitle = document.getElementsByTagName('title');
+      console.log(getTitle[0].text);
+      console.log('');
 
       /*
       6. Получите элемент с классом "card-title" и выведите его родительский узел
