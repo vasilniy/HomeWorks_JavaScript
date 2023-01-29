@@ -1,82 +1,119 @@
-Урок 7. Работа с DOM
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Homeworks 7</title>
+  </head>
 
-<head>
-<meta charset="UTF-8">
-<title>HomeWorks 7</title>
-</head>
-
-<body>
-<!--
+  <body>
+    <!--
 Обязательное задание.
 
 Выполнить все задачи в теге script. Комментарии, в которых написаны задачи, не
 стирать, код с решением задачи пишем под комментарием.
 -->
 
-<p class="dropdown">Привет :)</p>
-<div class="dropdown">
-<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-Dropdown button
-</button>
-<div class="menu dropdown-menu" aria-labelledby="dropdownMenuButton">
-<a class="dropdown-item" href="#">Action</a>
-<a class="dropdown-item" href="#">Another action</a>
-<a class="dropdown-item" href="#">Something else here</a>
-</div>
-</div>
+    <p class="dropdown">Привет :)</p>
+    <div class="dropdown">
+      <button
+        class="btn btn-secondary dropdown-toggle"
+        type="button"
+        id="dropdownMenuButton"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        Dropdown button
+      </button>
+      <div class="btn"></div>
+      <!-- Этот элемент добавил, для 2 задания -->
+      <div class="menu dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </div>
 
-<script>
-"use strict";
+    <script>
+      "use strict";
 
-/*
+      /*
 1. Ко всем элементам, имеющим класс "dropdown-item" добавить еще один класс
 "super-dropdown", необходимо использовать методы forEach и querySelectorAll и
 свойство classList у элементов.
  */
+      const addClassEl = document.querySelectorAll(".dropdown-item");
+      addClassEl.forEach((element) => {
+        element.classList.add("super-dropdown");
+      });
+      console.log(addClassEl);
+      console.log("");
 
-
-/*
+      /*
 2. У элемента с классом btn необходимо убрать класс "btn-secondary", если он
 присутствует у этого элемента, либо добавить, если такого класса у элемента
 не было.
  */
 
+      const delClassBtnEl = document.querySelectorAll(".btn");
+      delClassBtnEl.forEach((element) => {
+        element.classList.toggle("btn-secondary");
+      });
+      console.log(delClassBtnEl);
+      console.log("");
 
-/*
+      /*
 3. Необходимо удалить класс "dropdown-menu" у элемента, у которого
 присутствует класс "menu".
  */
 
+      const delClassDropdownMenu = document.querySelectorAll(".menu");
+      delClassDropdownMenu.forEach((element) => {
+        element.classList.remove("dropdown-menu");
+      });
+      console.log(delClassDropdownMenu);
+      console.log("");
 
-/*
+      /*
 4. Используя метод insertAdjacentHTML добавьте после div'a с классом
 "dropdown" следующую разметку:
   <a href="#">link</a>
  */
 
+      const addDivMarkup = document.querySelectorAll("div.dropdown");
+      addDivMarkup[0].insertAdjacentHTML(
+        "afterBegin",
+        '<a href="#">link - добавлен через JS</a><br>'
+      );
+      console.log(addDivMarkup);
+      console.log("");
 
-/*
+      /*
 5. У элемента с id "dropdownMenuButton" замените id на "superDropdown".
  */
+      const changeId = document.querySelector("#dropdownMenuButton");
+      changeId.id = "superDropdown";
+      console.log(changeId);
+      console.log("");
 
-
-/*
+      /*
 6. Добавьте атрибут data-dd со значением 3 элементу у которого существует
 атрибут "aria-labelledby" равный "dropdownMenuButton" используя dataset.
  */
+      //const addAttrib =  document.querySelector('[aria-labelledby = "dropdownMenuButton"]');
+      const addAttrib = document.querySelector("[aria-labelledby]");
+      addAttrib.dataset.dd = "3";
+      console.log(addAttrib);
+      console.log("");
 
-
-/*
+      /*
 7. Удалите атрибут type у элемента с классом "dropdown-toggle".
  */
 
-/*
+      /*
    8.  Создать приложение простой калькулятор. (не обязательное) 
         Для вычисления выражения можно использовать встроенную ф-цию eval()
 */
-</script>
-</body>
-
+    </script>
+  </body>
 </html>
