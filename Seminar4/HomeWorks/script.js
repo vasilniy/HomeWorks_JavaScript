@@ -111,45 +111,39 @@ for (let i = 1; i < 4; i++) {
 }
 */
 
-const array1 =
-  [
-    [ 2, 8, 4 ],
-    [ 4, 2, 0 ],
-    [ 1, 7, 5]
-  ];
+/*
+Задание №6. Реализовать алгоритм умножения матриц (Не обязательное) */
 
-const array2 =
-  [
-    [ 8, 4, 1 ],
-    [ 2, 0, 9 ],
-    [ 7, 5, 4 ]
-  ];
+const array1 = [
+  [2, 8, 4],
+  [4, 2, 0],
+  [1, 7, 5],
+];
 
-function multiplication (arr1, arr2) {
+const array2 = [
+  [8, 4, 1],
+  [2, 0, 9],
+  [7, 5, 4],
+];
+
+function multiplication(arr1, arr2) {
   const myArray = new Array(arr1.length);
-  for (let x = 0; x < arr1.length; x++) {   
-    myArray[x] = new Array(arr2.length) 
-    for (let i = 0; i < arr1.length; i++){
-        let number = 0;
-        for (let j = 0; j < arr1[i].length; j++) {
-        number = arr1[x][j] * arr2[j][i] + number;// + arr1[i][j+1] * arr2[j+1][i] + arr1[i][j+2] * arr2[j+2][i];
-        
-            
-      }    
-    
-    myArray[x][i] = number;
-    
+  for (let x = 0; x < arr1.length; x++) {
+    myArray[x] = new Array(arr2.length);
+    for (let i = 0; i < arr1.length; i++) {
+      let number = 0;
+      for (let j = 0; j < arr1[i].length; j++) {
+        number = arr1[x][j] * arr2[j][i] + number;
+      }
+
+      myArray[x][i] = number;
     }
-  
   }
   return myArray;
 }
 console.log(array1);
-console.log('');
+console.log("");
 console.log(array2);
-console.log('');
-console.log('Перемноженные матрицы:');
+console.log("");
+console.log("Перемноженные матрицы:");
 console.log(multiplication(array1, array2));
-
-/*
-Задание №6. Реализовать алгоритм умножения матриц (Не обязательное) */
