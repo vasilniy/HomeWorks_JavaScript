@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", ready);
 ресурсы страницы будут загружены.
 */
 
-document.addEventListener('load', function() {console.log("страница загрузилась")});
+window.addEventListener('load', function() {console.log("страница загрузилась")});
 
 /*
 3. При клике на какой-либо тег на странице в консоль должно выводиться
@@ -68,11 +68,24 @@ document.addEventListener('load', function() {console.log("страница за
 которому был совершен клик.
 Необходимо использовать делегирование.
 */
+const bodyEl = document.querySelector('body');
+const superEl = (e) => {
+  const classSuperEl = e.target;
+  if (classSuperEl.classList.contains('super_element')){
+  console.log('Класс "super_element" присутствует в элементе <' + classSuperEl.tagName.toLowerCase() + '>');
+  }
+  else console.log('Класса с именем "super_element" нет в данном <' + classSuperEl.tagName.toLowerCase() + '> теге');
+};
+bodyEl.addEventListener('click', superEl);
 
 /*
 4. Сделайте, чтобы при наведении на textarea в консоли появлялось сообщение:
 "Вы навели на textarea."
 */
+
+const textAreaTag = document.querySelector('textarea');
+console.log(textAreaTag);
+textAreaTag.addEventListener('mouseenter', function (e) { console.log('Вы навели на textarea.')});
 
 /*
 5. Необходимо повесить событие клика на тег ul. В обработчике события в
