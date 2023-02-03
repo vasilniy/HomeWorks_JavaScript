@@ -82,10 +82,13 @@ bodyEl.addEventListener('click', superEl);
 4. Сделайте, чтобы при наведении на textarea в консоли появлялось сообщение:
 "Вы навели на textarea."
 */
-
 const textAreaTag = document.querySelector('textarea');
-console.log(textAreaTag);
-textAreaTag.addEventListener('mouseenter', function (e) { console.log('Вы навели на textarea.')});
+const createElDiv = document.createElement('div');
+createElDiv.textContent = 'Вы навели на textarea.';
+textAreaTag.addEventListener('mousemove', function (e) {
+  bodyEl.appendChild(createElDiv);
+  console.log('Вы навели на textarea.');  
+});
 
 /*
 5. Необходимо повесить событие клика на тег ul. В обработчике события в
@@ -94,6 +97,7 @@ textAreaTag.addEventListener('mouseenter', function (e) { console.log('Вы на
 Если клик был не по кнопке, то ничего выводить не нужно.
 Необходимо использовать делегирование.
 */
+
 
 /*
 6. Вопрос: Почему в console.log пишется сначала текст из 5 задания и только
