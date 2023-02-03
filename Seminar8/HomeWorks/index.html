@@ -1,65 +1,71 @@
 <!DOCTYPE html>
 <!-- Урок 8. Основы событий в JavaScript -->
-
+<style>
+  .ulcolor {
+    background: #11afff;
+  }
+</style>
 <p class="super_element">Привет</p>
 
-<img src="https://placeimg.com/50/50/animals" alt="">
-<img src="https://placeimg.com/50/50/arch" alt="">
-<img src="https://placeimg.com/50/50/nature" alt="">
-<img src="https://placeimg.com/50/50/people" alt="">
-<img src="https://placeimg.com/50/50/tech" alt="">
-<img src="https://placeimg.com/50/50/tech/grayscale" alt="">
-<img src="https://placeimg.com/50/50/tech/sepia" alt="">
+<img src="https://placeimg.com/50/50/animals" alt="" />
+<img src="https://placeimg.com/50/50/arch" alt="" />
+<img src="https://placeimg.com/50/50/nature" alt="" />
+<img src="https://placeimg.com/50/50/people" alt="" />
+<img src="https://placeimg.com/50/50/tech" alt="" />
+<img src="https://placeimg.com/50/50/tech/grayscale" alt="" />
+<img src="https://placeimg.com/50/50/tech/sepia" alt="" />
 
-<br>
+<br />
 
 <button>Кнопка</button>
 <button class="super_element">Кнопка с классом btn</button>
 <button>Кнопка</button>
 
-<br>
+<br />
 
 <textarea></textarea>
 
-<br>
+<br />
 
 <ul>
-<li>
-<button>Кнопка 1</button>
-</li>
-<li>
-<button>Кнопка 2</button>
-</li>
-<li>
-<button>Кнопка 3</button>
-</li>
-<li>
-<button>Кнопка 4</button>
-</li>
+  <li>
+    <button>Кнопка 1</button>
+  </li>
+  <li>
+    <button>Кнопка 2</button>
+  </li>
+  <li>
+    <button>Кнопка 3</button>
+  </li>
+  <li>
+    <button>Кнопка 4</button>
+  </li>
 </ul>
 
 <script>
-"use strict";
+  "use strict";
 
-/*
+  /*
 1. Необходимо вывести сообщение в консоль "все теги прогрузились", когда все
 теги будут созданы браузером.
 */
 
-const ready = (e) => {
-  console.log("все теги прогрузились");
-  console.log(e.target.body);
-}
-document.addEventListener("DOMContentLoaded", ready);
+  const ready = (e) => {
+    console.log("все теги прогрузились");
+    console.log(e.target.body);
+  };
+  document.addEventListener("DOMContentLoaded", ready);
 
-/*
+  /*
 2. Необходимо вывести сообщение в консоль "страница загрузилась", когда все
 ресурсы страницы будут загружены.
 */
 
-window.addEventListener('load', function() {console.log("страница загрузилась")});
+  window.addEventListener("load", function () {
+    console.log("страница загрузилась");
+  });
 
-/*
+  /*
 3. При клике на какой-либо тег на странице в консоль должно выводиться
 сообщение наподобие:
 Класс "super_element" присутствует в элементе "div".
@@ -69,34 +75,38 @@ window.addEventListener('load', function() {console.log("страница заг
 Необходимо использовать делегирование.
 */
 
+  const bodyEl = document.querySelector("body");
+  const superEl = (e) => {
+    const classSuperEl = e.target;
+    if (classSuperEl.classList.contains("super_element")) {
+      console.log(
+        'Класс "super_element" присутствует в элементе <' +
+          classSuperEl.tagName.toLowerCase() +
+          ">"
+      );
+    } else
+      console.log(
+        'Класса с именем "super_element" нет в данном <' +
+          classSuperEl.tagName.toLowerCase() +
+          "> теге"
+      );
+  };
+  bodyEl.addEventListener("click", superEl);
 
-const bodyEl = document.querySelector('body');
-const superEl = (e) => {
-  const classSuperEl = e.target;
-  if (classSuperEl.classList.contains('super_element')){
-  console.log('Класс "super_element" присутствует в элементе <' + classSuperEl.tagName.toLowerCase() + '>');
-  }
-  else console.log('Класса с именем "super_element" нет в данном <' + classSuperEl.tagName.toLowerCase() + '> теге');
-};
-bodyEl.addEventListener('click', superEl);
-
-
-/*
+  /*
 4. Сделайте, чтобы при наведении на textarea в консоли появлялось сообщение:
 "Вы навели на textarea."
 */
 
-/*
-const textAreaTag = document.querySelector('textarea');
-const createElDiv = document.createElement('div');
-createElDiv.textContent = 'Вы навели на textarea.';
-textAreaTag.addEventListener('mousemove', function (e) {
-  bodyEl.appendChild(createElDiv);
-  console.log('Вы навели на textarea.');  
-});
-*/
+  const textAreaTag = document.querySelector("textarea");
+  const createElDiv = document.createElement("div");
+  createElDiv.textContent = "Вы навели на textarea.";
+  textAreaTag.addEventListener("mousemove", function (e) {
+    bodyEl.appendChild(createElDiv);
+    console.log("Вы навели на textarea.");
+  });
 
-/*
+  /*
 5. Необходимо повесить событие клика на тег ul. В обработчике события в
 консоль необходимо выводить текст, который записан внутри элемента кнопки,
 по которой был произведен клик.
@@ -104,19 +114,19 @@ textAreaTag.addEventListener('mousemove', function (e) {
 Необходимо использовать делегирование.
 */
 
-const ulTagEl = document.querySelector('ul');
-const ulBtnAddCosole = (e) =>{
-  console.log(e.target.textContent);
-}
-ulTagEl.addEventListener('click', ulBtnAddCosole);
+  const ulTagEl = document.querySelector("ul");
+  const ulBtnAddCosole = (e) => {
+    console.log(e.target.textContent);
+  };
+  ulTagEl.addEventListener("click", ulBtnAddCosole);
 
-/*
+  /*
 6. Вопрос: Почему в console.log пишется сначала текст из 5 задания и только
 потом выводится текст из 3 задания, если мы кликаем по кнопкам в ul?
 Ответ необходимо написать здесь же, под этим комментарием, своими словами.
 */
 
-/*
+  /*
 Я считаю, что делегирование как то зависит от "глубины" опускание в DOM - документ. 
 Так в 3 задании у нас захвачен тег <body>, а в 5 задании тег <ul>,
 так вот обработчик события начинается при клике на тег <button> в обоих случаях, но событие сначала закончится в 5 задании
@@ -124,13 +134,36 @@ ulTagEl.addEventListener('click', ulBtnAddCosole);
 То есть идет как бы изнутри к верху DOM-документа.    
 */
 
-/*
+  /*
 7. С помощью JS необходимо изменить цвет заднего фона каждого второго тега li.
 */
+  
+  const backgroundColor = () => {
+    const everySecondBGEl = document.querySelectorAll("li");
+    for (let i = 0; i < everySecondBGEl.length; i++) {
+    if (i % 2 != 0) {
+      everySecondBGEl[i].classList.add("ulcolor");     
+    }
+  }
+  };
+  backgroundColor();
+  
+  //for (let i = 0; i < everySecondBGEl.length; i++) {
+  //  if (i % 2 != 0) {
+  //    everySecondBGEl[i].classList.add("ulcolor");
+  //    console.log(everySecondBGEl[i]);
+  //  }
+  //}
 
+  const addLiExample = document.querySelector("p.super_element");  // при добавлении нового списка, каждый 2ой меняет bgcolor
+  addLiExample.addEventListener("click", (e) => {
+    const createLiTag = document.createElement("li");
+    createLiTag.textContent = "Новый список без кнопки";
+    ulTagEl.appendChild(createLiTag);
+    backgroundColor();
+  });
 
-
-/*
+  /*
 8. (не обязательное)
 9.  Создать мини приложение "О нас" как на скриншотах https://cloud.mail.ru/public/LzSA/zkd3zv17F
 Вывести название приложение, фото персоны, описание и стрелки  для возможности переключаться между анкетами.
