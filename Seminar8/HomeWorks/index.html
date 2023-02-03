@@ -69,7 +69,7 @@ window.addEventListener('load', function() {console.log("страница заг
 Необходимо использовать делегирование.
 */
 
-/*
+
 const bodyEl = document.querySelector('body');
 const superEl = (e) => {
   const classSuperEl = e.target;
@@ -79,7 +79,7 @@ const superEl = (e) => {
   else console.log('Класса с именем "super_element" нет в данном <' + classSuperEl.tagName.toLowerCase() + '> теге');
 };
 bodyEl.addEventListener('click', superEl);
-*/
+
 
 /*
 4. Сделайте, чтобы при наведении на textarea в консоли появлялось сообщение:
@@ -108,7 +108,6 @@ const ulTagEl = document.querySelector('ul');
 const ulBtnAddCosole = (e) =>{
   console.log(e.target.textContent);
 }
-
 ulTagEl.addEventListener('click', ulBtnAddCosole);
 
 /*
