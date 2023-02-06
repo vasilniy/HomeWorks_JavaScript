@@ -96,8 +96,9 @@ getMyForm.children[6].addEventListener('click', e => {
   const label1 = findInput[1].options.selectedIndex;
   const label2 = findInput[0].value;
   e.preventDefault();
-  console.log(getMyForm.children[6]);
+  console.log(e.target);
   console.log(label1);  
+  console.log(label2);  
 
 });
 
