@@ -46,6 +46,12 @@
 должно моментально отображаться в span. То есть при печати в input'е тег span
 также должен меняться.
 */
+const getIdInput = document.querySelector('#from');
+const getSpan = document.querySelector('span');
+getIdInput.addEventListener('input', e => {
+  getSpan.textContent =  e.target.value;
+
+});
 
 /*
 2. При клике на кнопку с классом messageBtn необходимо элементу с классом
@@ -53,6 +59,9 @@ message:
 1) добавить два класса: animate_animated и animate_fadeInLeftBig
 2) поставить данному элементу стиль visibility в значение 'visible'.
 */
+
+const getMessageBtn = document.querySelector('messageBtn');
+
 
 /*
 3. Необходимо при отправке формы проверить, заполнены ли все поля в этой
