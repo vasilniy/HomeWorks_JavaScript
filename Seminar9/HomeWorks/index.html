@@ -60,7 +60,14 @@ message:
 2) поставить данному элементу стиль visibility в значение 'visible'.
 */
 
-const getMessageBtn = document.querySelector('messageBtn');
+const getMessageBtn = document.querySelector('.messageBtn');
+const getMessage = document.querySelector('.message');
+getMessageBtn.addEventListener('click', () => {
+  getMessage.classList.add('animate_animated', 'animate_fadeInLeftBig');
+  if (getMessage.style.visibility == 'hidden'){
+    getMessage.style.visibility = 'visible';}
+  else {getMessage.style.visibility = 'hidden';}  
+});
 
 
 /*
