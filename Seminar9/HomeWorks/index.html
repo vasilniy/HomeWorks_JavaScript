@@ -23,7 +23,7 @@
 
 <br>
 
-<form>
+<form class="myForm">
 <label>
 Первый инпут:
 <input class="form-control" type="text">
@@ -86,8 +86,22 @@ getMessageBtn.addEventListener('click', () => {
 данному полю).
 Если поле было чем-либо заполнено, подсветку (класс error) необходимо убрать.
 
-
-
 Доп. задание: добавить анимации в случае, если ошибка (error)
 */
+
+const getMyForm = document.querySelector('.myForm');
+const findInput = document.querySelectorAll('.form-control');
+
+getMyForm.children[6].addEventListener('click', e => {
+  const label1 = findInput[1].options.selectedIndex;
+  const label2 = findInput[0].value;
+  e.preventDefault();
+  console.log(getMyForm.children[6]);
+  console.log(label1);  
+
+});
+console.log(getMyForm.children[6]);
+
+
+//console.log(findInput);
 </script>
