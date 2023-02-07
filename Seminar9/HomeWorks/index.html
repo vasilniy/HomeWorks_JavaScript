@@ -8,12 +8,11 @@
 <style>
   .error {
     border: 1px solid red;
-    outline-width: 1px;
     outline-color: red;
   }
 
   .form-control {
-    
+    padding: 10px;
   }
 </style>
 <input id="from" type="text" />
@@ -96,7 +95,6 @@
     const findInput = document.querySelectorAll(".form-control");
     const findInputArray = Array.prototype.slice.call(findInput);
 
-    console.log(findInputArray[1].tagName);
 /*
     findInputArray[0].addEventListener("mouseout", () => {
       const label1 = findInput[0].value;      
@@ -125,17 +123,15 @@
     });
 
     getMyForm.children[6].addEventListener("click", (e) => {
-      const label1 = findInput[1].options.selectedIndex;
-      const label2 = findInput[0].value;
-      if (label1 == 0 || label2 == "") {
+      const label1 = findInput[0].value;
+      const label2 = findInput[1].options.selectedIndex;
+      if (label1 == '' || label2 == 0) {
         console.log("Заполните поля");
         findInput.forEach((element) => {
-          element.classList.add("error");
+        element.classList.add("error");
         });
         e.preventDefault();
       }
-      //  console.log(e.target);
-      //  console.log(label1);
-      //  console.log(label2);
+      
     });
 </script>
