@@ -14,6 +14,25 @@
   .form-control {
     padding: 10px;
   }
+
+  .myElem {
+    animation: 0.8s ease-in-out 0s normal none 2 running trambling-animation;
+  }
+  @keyframes trambling-animation {
+    0%,
+    50%,
+    100% {
+      transform: rotate(0deg);
+    }
+    10%,
+    30% {
+      transform: rotate(-5deg);
+    }
+    20%,
+    40% {
+      transform: rotate(5deg);
+    }
+  }
 </style>
 <input id="from" type="text" />
 В инпуте написано: <span></span>
@@ -46,38 +65,38 @@
 </form>
 
 <script>
-    "use strict";
+  "use strict";
 
-    /*
+  /*
   1. При изменении значения в input с id="from", значение содержащееся в нем
   должно моментально отображаться в span. То есть при печати в input'е тег span
   также должен меняться.
   */
-    const getIdInput = document.querySelector("#from");
-    const getSpan = document.querySelector("span");
-    getIdInput.addEventListener("input", (e) => {
-      getSpan.textContent = e.target.value;
-    });
+  const getIdInput = document.querySelector("#from");
+  const getSpan = document.querySelector("span");
+  getIdInput.addEventListener("input", (e) => {
+    getSpan.textContent = e.target.value;
+  });
 
-    /*
+  /*
   2. При клике на кнопку с классом messageBtn необходимо элементу с классом
   message:
   1) добавить два класса: animate_animated и animate_fadeInLeftBig
   2) поставить данному элементу стиль visibility в значение 'visible'.
   */
 
-    const getMessageBtn = document.querySelector(".messageBtn");
-    const getMessage = document.querySelector(".message");
-    getMessageBtn.addEventListener("click", () => {
-      getMessage.classList.add("animate_animated", "animate_fadeInLeftBig");
-      if (getMessage.style.visibility == "hidden") {
-        getMessage.style.visibility = "visible";
-      } else {
-        getMessage.style.visibility = "hidden";
-      }
-    });
+  const getMessageBtn = document.querySelector(".messageBtn");
+  const getMessage = document.querySelector(".message");
+  getMessageBtn.addEventListener("click", () => {
+    getMessage.classList.add("animate_animated", "animate_fadeInLeftBig");
+    if (getMessage.style.visibility == "hidden") {
+      getMessage.style.visibility = "visible";
+    } else {
+      getMessage.style.visibility = "hidden";
+    }
+  });
 
-    /*
+  /*
   3. Необходимо при отправке формы проверить, заполнены ли все поля в этой
   форме. Если какое-либо поле не заполнено, форма не должна отправляться, также
   должны быть подсвечены незаполненные поля (необходимо поставить класс error
@@ -91,11 +110,11 @@
   Доп. задание: добавить анимации в случае, если ошибка (error)
   */
 
-    const getMyForm = document.querySelector(".myForm");
-    const findInput = document.querySelectorAll(".form-control");
-    const findInputArray = Array.prototype.slice.call(findInput);
+  const getMyForm = document.querySelector(".myForm");
+  const findInput = document.querySelectorAll(".form-control");
+  const findInputArray = Array.prototype.slice.call(findInput);
 
-/*
+  /*
     findInputArray[0].addEventListener("mouseout", () => {
       const label1 = findInput[0].value;      
       if (label1 == '') {findInputArray[0].classList.add("error");}
@@ -108,30 +127,41 @@
       else {findInputArray[1].classList.remove("error")};
     });
 */
-   
-   
-    findInputArray.forEach((element) => {
-      element.addEventListener("mouseout", () => {
-        const label1 = findInput[1].options.selectedIndex;
-        const label2 = findInput[0].value;
-        
-        if ((label1 == 0 && element.tagName == 'SELECT')) {element.classList.add("error");}
-        else {element.classList.remove("error")};
-        if ((label2 == "" && element.tagName == 'INPUT')) {element.classList.add("error");}
 
-      });
-    });
+  findInputArray.forEach((element) => {
+    element.addEventListener("mouseout", () => {
+      const label1 = findInput[1].options.selectedIndex;
+      const label2 = findInput[0].value;
 
-    getMyForm.children[6].addEventListener("click", (e) => {
-      const label1 = findInput[0].value;
-      const label2 = findInput[1].options.selectedIndex;
-      if (label1 == '' || label2 == 0) {
-        console.log("Заполните поля");
-        findInput.forEach((element) => {
+      if (label1 == 0 && element.tagName == "SELECT") {
         element.classList.add("error");
-        });
-        e.preventDefault();
+      } else {
+        element.classList.remove("error");
       }
-      
+      if (label2 == "" && element.tagName == "INPUT") {
+        element.classList.add("error");
+      }
     });
+  });
+  findInputArray.forEach((element) => {
+    element.addEventListener("mouseover", () => {
+      findInput.forEach((delClass) => {
+      if (delClass.classList.contains("myElem")) {
+        delClass.classList.remove("myElem");
+      }
+    });
+  });
+});
+
+  getMyForm.children[6].addEventListener("click", (e) => {
+    const label1 = findInput[0].value;
+    const label2 = findInput[1].options.selectedIndex;
+    if (label1 == "" || label2 == 0) {
+      console.log("Заполните поля");
+      findInput.forEach((element) => {
+        element.classList.add("error", "myElem");
+      });
+      e.preventDefault();
+    }
+  });
 </script>
