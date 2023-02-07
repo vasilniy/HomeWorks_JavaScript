@@ -6,101 +6,136 @@
 стирать, код с решением задачи пишем под комментарием.
 -->
 <style>
-.error {
-  border: 1px solid red;
-}
+  .error {
+    border: 1px solid red;
+    outline-width: 1px;
+    outline-color: red;
+  }
 
+  .form-control {
+    
+  }
 </style>
-<input id="from" type="text">
+<input id="from" type="text" />
 В инпуте написано: <span></span>
 
-<br>
+<br />
 
 <button class="messageBtn">Показать блок</button>
-<div class="message">
-Привет :)
-</div>
+<div class="message">Привет :)</div>
 
-<br>
+<br />
 
 <form class="myForm">
-<label>
-Первый инпут:
-<input class="form-control" type="text">
-</label>
-<br>
-<br>
-<label>
-Второй инпут:
-<select class="form-control">
-<option value=""></option>
-<option value="1">Один</option>
-<option value="2">Два</option>
-</select>
-</label>
-<br>
-<br>
-<button>Отправить</button>
+  <label>
+    Первый инпут:
+    <input class="form-control" type="text" />
+  </label>
+  <br />
+  <br />
+  <label>
+    Второй инпут:
+    <select class="form-control">
+      <option value=""></option>
+      <option value="1">Один</option>
+      <option value="2">Два</option>
+    </select>
+  </label>
+  <br />
+  <br />
+  <button>Отправить</button>
 </form>
 
 <script>
-"use strict";
+    "use strict";
 
+    /*
+  1. При изменении значения в input с id="from", значение содержащееся в нем
+  должно моментально отображаться в span. То есть при печати в input'е тег span
+  также должен меняться.
+  */
+    const getIdInput = document.querySelector("#from");
+    const getSpan = document.querySelector("span");
+    getIdInput.addEventListener("input", (e) => {
+      getSpan.textContent = e.target.value;
+    });
+
+    /*
+  2. При клике на кнопку с классом messageBtn необходимо элементу с классом
+  message:
+  1) добавить два класса: animate_animated и animate_fadeInLeftBig
+  2) поставить данному элементу стиль visibility в значение 'visible'.
+  */
+
+    const getMessageBtn = document.querySelector(".messageBtn");
+    const getMessage = document.querySelector(".message");
+    getMessageBtn.addEventListener("click", () => {
+      getMessage.classList.add("animate_animated", "animate_fadeInLeftBig");
+      if (getMessage.style.visibility == "hidden") {
+        getMessage.style.visibility = "visible";
+      } else {
+        getMessage.style.visibility = "hidden";
+      }
+    });
+
+    /*
+  3. Необходимо при отправке формы проверить, заполнены ли все поля в этой
+  форме. Если какое-либо поле не заполнено, форма не должна отправляться, также
+  должны быть подсвечены незаполненные поля (необходимо поставить класс error
+  незаполненным полям).
+  Как только пользователь начинает заполнять какое-либо поле, необходимо,
+  при вводе в данное поле, произвести проверку:
+  Если поле пустое, необходимо данное поле подсветить (поставить класс error
+  данному полю).
+  Если поле было чем-либо заполнено, подсветку (класс error) необходимо убрать.
+
+  Доп. задание: добавить анимации в случае, если ошибка (error)
+  */
+
+    const getMyForm = document.querySelector(".myForm");
+    const findInput = document.querySelectorAll(".form-control");
+    const findInputArray = Array.prototype.slice.call(findInput);
+
+    console.log(findInputArray[1].tagName);
 /*
-1. При изменении значения в input с id="from", значение содержащееся в нем
-должно моментально отображаться в span. То есть при печати в input'е тег span
-также должен меняться.
+    findInputArray[0].addEventListener("mouseout", () => {
+      const label1 = findInput[0].value;      
+      if (label1 == '') {findInputArray[0].classList.add("error");}
+      else {findInputArray[0].classList.remove("error")};
+    });
+
+    findInputArray[1].addEventListener("mouseout", () => {
+      const label2 = findInput[1].options.selectedIndex;
+      if (label2 == 0) {findInputArray[1].classList.add("error");}
+      else {findInputArray[1].classList.remove("error")};
+    });
 */
-const getIdInput = document.querySelector('#from');
-const getSpan = document.querySelector('span');
-getIdInput.addEventListener('input', e => {
-  getSpan.textContent =  e.target.value;
+   
+   
+    findInputArray.forEach((element) => {
+      element.addEventListener("mouseout", () => {
+        const label1 = findInput[1].options.selectedIndex;
+        const label2 = findInput[0].value;
+        
+        if ((label1 == 0 && element.tagName == 'SELECT')) {element.classList.add("error");}
+        else {element.classList.remove("error")};
+        if ((label2 == "" && element.tagName == 'INPUT')) {element.classList.add("error");}
 
-});
+      });
+    });
 
-/*
-2. При клике на кнопку с классом messageBtn необходимо элементу с классом
-message:
-1) добавить два класса: animate_animated и animate_fadeInLeftBig
-2) поставить данному элементу стиль visibility в значение 'visible'.
-*/
-
-const getMessageBtn = document.querySelector('.messageBtn');
-const getMessage = document.querySelector('.message');
-getMessageBtn.addEventListener('click', () => {
-  getMessage.classList.add('animate_animated', 'animate_fadeInLeftBig');
-  if (getMessage.style.visibility == 'hidden'){
-    getMessage.style.visibility = 'visible';}
-  else {getMessage.style.visibility = 'hidden';}  
-});
-
-
-/*
-3. Необходимо при отправке формы проверить, заполнены ли все поля в этой
-форме. Если какое-либо поле не заполнено, форма не должна отправляться, также
-должны быть подсвечены незаполненные поля (необходимо поставить класс error
-незаполненным полям).
-Как только пользователь начинает заполнять какое-либо поле, необходимо,
-при вводе в данное поле, произвести проверку:
-Если поле пустое, необходимо данное поле подсветить (поставить класс error
-данному полю).
-Если поле было чем-либо заполнено, подсветку (класс error) необходимо убрать.
-
-Доп. задание: добавить анимации в случае, если ошибка (error)
-*/
-
-const getMyForm = document.querySelector('.myForm');
-const findInput = document.querySelectorAll('.form-control');
-
-getMyForm.children[6].addEventListener('click', e => {
-  const label1 = findInput[1].options.selectedIndex;
-  const label2 = findInput[0].value;
-  e.preventDefault();
-  console.log(e.target);
-  console.log(label1);  
-  console.log(label2);  
-
-});
-
-
+    getMyForm.children[6].addEventListener("click", (e) => {
+      const label1 = findInput[1].options.selectedIndex;
+      const label2 = findInput[0].value;
+      if (label1 == 0 || label2 == "") {
+        console.log("Заполните поля");
+        findInput.forEach((element) => {
+          element.classList.add("error");
+        });
+        e.preventDefault();
+      }
+      //  console.log(e.target);
+      //  console.log(label1);
+      //  console.log(label2);
+    });
 </script>
