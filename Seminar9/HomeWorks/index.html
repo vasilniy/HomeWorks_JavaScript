@@ -109,12 +109,12 @@
 
   Доп. задание: добавить анимации в случае, если ошибка (error)
   */
-
+/*
   const getMyForm = document.querySelector(".myForm");
   const findInput = document.querySelectorAll(".form-control");
   const findInputArray = Array.prototype.slice.call(findInput);
 
-  /*
+  
     findInputArray[0].addEventListener("mouseout", () => {
       const label1 = findInput[0].value;      
       if (label1 == '') {findInputArray[0].classList.add("error");}
@@ -128,6 +128,27 @@
     });
 */
 
+
+const formEl = document.querySelector(".myForm");
+      const buttonEl = formEl.querySelector("button");
+      const inputEls = formEl.querySelectorAll(".form-control");
+
+      buttonEl.addEventListener("click", function (e) {
+        inputEls.forEach((element) => {
+          if (!element.value) {
+            element.classList.add("error");
+            e.preventDefault();
+          }
+        });
+      });
+
+      inputEls.forEach((element) => {
+        element.addEventListener("input", function (e) {
+          e.target.classList.remove("error");
+        });
+      });
+
+/*
   findInputArray.forEach((element) => {
     element.addEventListener("mouseout", () => {
       const label1 = findInput[1].options.selectedIndex;
@@ -164,4 +185,5 @@
       e.preventDefault();
     }
   });
+  */
 </script>
