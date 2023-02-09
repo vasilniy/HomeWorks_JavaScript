@@ -12,9 +12,9 @@ p {
 }
 
 .content {
+    background-image: url(/img/rikmorti.jpeg);
     width: 80%;
-    margin: 0 auto;
-    border: 1px solid #000;
+    margin: 0 auto;    
     padding: 10px;
     display: flex;
     flex-wrap: wrap;
