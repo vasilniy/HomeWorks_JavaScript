@@ -26,18 +26,20 @@ https://rickandmortyapi.com/documentation
   <body>
     <div class="container">
       <div class="content">
-        <div class="card">
-          <img
-            class="cardimg"
-            src="https://rickandmortyapi.com/api/character/avatar/66.jpeg"
-            alt="photo"
-          />
-          <p class="name">ИМЯ: Иванов</p>
-          <p class="status">Статус: Живой</p>
-          <p class="species">Вид: Человек</p>
-          <p class="gender">Пол: Мужской</p>
-          <p class="location">Локация: Земля</p>
-        </div>
+        <template class="card_template">
+          <div class="card">
+            <img
+              class="cardimg"
+              src="https://rickandmortyapi.com/api/character/avatar/66.jpeg"
+              alt="photo"
+            />
+            <p class="name">ИМЯ: Иванов</p>
+            <p class="status">Статус: Живой</p>
+            <p class="species">Вид: Человек</p>
+            <p class="gender">Пол: Мужской</p>
+            <p class="location">Локация: Земля</p>
+          </div>
+        </template>
       </div>
     </div>
     <script src="data.js"></script>
@@ -46,26 +48,33 @@ https://rickandmortyapi.com/documentation
       console.log(loadRAM.results[0].name);
 
       const contentEl = document.querySelector(".content");
-      const cardEl = document.querySelector(".card");
+      const templateEl = document.querySelector(".card_template");
 
-      const imgEl = document.querySelector(".cardimg");
-      imgEl.src = loadRAM.results[1].image;
+      loadRAM.results.forEach((rAM) => {
+        const cardEl = templateEl.content
+          .querySelector(".card")
+          .cloneNode(true);
 
-      const name = document.querySelector(".name");
-      name.textContent = "ИМЯ: " + loadRAM.results[1].name;
+        const imgEl = cardEl.querySelector(".cardimg");       
+        imgEl.src = rAM.image;
 
-      const status = document.querySelector(".status");
-      status.textContent = 'Статус: ' + loadRAM.results[1].status;
+        const pName = cardEl.querySelector(".name");
+        pName.textContent = "ИМЯ: " + rAM.name;
 
-      const species = document.querySelector(".species");
-      species.textContent = 'Вид: ' + loadRAM.results[1].species;
+        const status = cardEl.querySelector(".status");
+        status.textContent = "Статус: " + rAM.status;
 
-      const gender = document.querySelector(".gender");
-      gender.textContent = 'Пол: ' + loadRAM.results[1].gender;
+        const species = cardEl.querySelector(".species");
+        species.textContent = "Вид: " + rAM.species;
 
-      const pLocation = document.querySelector(".location");
-      pLocation.textContent = 'Локация: ' + loadRAM.results[1].location.name;
-      
+        const gender = cardEl.querySelector(".gender");
+        gender.textContent = "Пол: " + rAM.gender;
+
+        const pLocation = cardEl.querySelector(".location");
+        pLocation.textContent = "Локация: " + rAM.location.name;
+
+        contentEl.appendChild(cardEl);
+      });    
     </script>
   </body>
 </html>
