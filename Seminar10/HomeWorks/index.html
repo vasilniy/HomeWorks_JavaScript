@@ -20,49 +20,52 @@ https://rickandmortyapi.com/documentation
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
-    <script src="data.js"></script>
+    <link rel="stylesheet" href="style.css" />
     <title>HomeWorks 10</title>
   </head>
   <body>
     <div class="container">
-        <div class="content">
-            <div class="card">
-                <img class="cardimg" src="https://rickandmortyapi.com/api/character/avatar/66.jpeg" alt="photo">
-                <p class="p_name">ИМЯ: <span class="name">Иванов</span></p>
-                <p class="p_status">Статус: <span class="status">Живой</span></p>
-                <p class="p_species">Вид: <span class="species">Человек</span></p>
-                <p class="p_gender">Пол: <span class="gender">Мужской</span></p>
-                <p class="p_location">Локация: <span class="location">Земля</span></p>
-            </div>
+      <div class="content">
+        <div class="card">
+          <img
+            class="cardimg"
+            src="https://rickandmortyapi.com/api/character/avatar/66.jpeg"
+            alt="photo"
+          />
+          <p class="name">ИМЯ: Иванов</p>
+          <p class="status">Статус: Живой</p>
+          <p class="species">Вид: Человек</p>
+          <p class="gender">Пол: Мужской</p>
+          <p class="location">Локация: Земля</p>
         </div>
+      </div>
     </div>
+    <script src="data.js"></script>
 
     <script>
-        console.log(loadRAM.results[0].name);
-   /* fetch('https://rickandmortyapi.com/api/character')
-    .then((response) => response.json())
-    .then((data) => console.log(data))
-    .catch((error) => console.error(error));    */
+      console.log(loadRAM.results[0].name);
 
-    
-    const contentEl = document.querySelector(".content");
-    const cardEl = document.querySelector(".card");
+      const contentEl = document.querySelector(".content");
+      const cardEl = document.querySelector(".card");
 
-    const imgEl = document.querySelector(".content"); 
-    imgEl.src = loadRAM.results[1].image;   
+      const imgEl = document.querySelector(".cardimg");
+      imgEl.src = loadRAM.results[1].image;
 
+      const name = document.querySelector(".name");
+      name.textContent = "ИМЯ: " + loadRAM.results[1].name;
 
+      const status = document.querySelector(".status");
+      status.textContent = 'Статус: ' + loadRAM.results[1].status;
 
+      const species = document.querySelector(".species");
+      species.textContent = 'Вид: ' + loadRAM.results[1].species;
 
+      const gender = document.querySelector(".gender");
+      gender.textContent = 'Пол: ' + loadRAM.results[1].gender;
 
-
- 
-          
-
-
-          
-        
+      const pLocation = document.querySelector(".location");
+      pLocation.textContent = 'Локация: ' + loadRAM.results[1].location.name;
+      
     </script>
   </body>
 </html>
