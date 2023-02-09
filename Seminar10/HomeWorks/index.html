@@ -10,6 +10,26 @@
 Добавить данный контент в вёрстку
 * Добавить стили при необходимости
 * (не обязательно) сделать загрузку с api + поиск (как на семинаре) 
+
+Вся информация о мультсериале "Рик и Морти"
+https://rickandmortyapi.com/api/character/avatar/66.jpeg
 https://rickandmortyapi.com/documentation
 -->
-
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomeWorks 10</title>
+  </head>
+  <body>
+    <script>
+      
+        fetch('https://rickandmortyapi.com/api/character')
+          .then((response) => response.json())
+          .then((data) => console.log(data))
+          .catch((error) => console.error(error));
+      
+    </script>
+  </body>
+</html>
