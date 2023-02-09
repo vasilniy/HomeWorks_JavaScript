@@ -20,16 +20,41 @@ https://rickandmortyapi.com/documentation
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
     <title>HomeWorks 10</title>
   </head>
   <body>
+    <div class="container">
+        <div class="content">
+            <div class="card">
+                <img src="https://rickandmortyapi.com/api/character/avatar/66.jpeg" alt="photo">
+                <p>ИМЯ: <span class="name">Иванов</span></p>
+                <p>Статус: <span class="status">Живой</span></p>
+                <p>Вид: <span class="species">Человек</span></p>
+                <p>Пол: <span class="gender">Мужской</span></p>
+                <p>Локация: <span class="location">Земля</span></p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
     <script>
-      
-        fetch('https://rickandmortyapi.com/api/character')
+           fetch('https://rickandmortyapi.com/api/character')
           .then((response) => response.json())
-          .then((data) => console.log(data))
+          .then((data) => loadRAM(data))
           .catch((error) => console.error(error));
-      
+
+          function loadRAM (data) {
+            console.log(data.results[0].name);
+          };
+          
+
+
+          
+        
     </script>
   </body>
 </html>
