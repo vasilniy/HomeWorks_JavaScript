@@ -21,35 +21,43 @@ https://rickandmortyapi.com/documentation
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css">
+    <script src="data.js"></script>
     <title>HomeWorks 10</title>
   </head>
   <body>
     <div class="container">
         <div class="content">
             <div class="card">
-                <img src="https://rickandmortyapi.com/api/character/avatar/66.jpeg" alt="photo">
-                <p>ИМЯ: <span class="name">Иванов</span></p>
-                <p>Статус: <span class="status">Живой</span></p>
-                <p>Вид: <span class="species">Человек</span></p>
-                <p>Пол: <span class="gender">Мужской</span></p>
-                <p>Локация: <span class="location">Земля</span></p>
+                <img class="cardimg" src="https://rickandmortyapi.com/api/character/avatar/66.jpeg" alt="photo">
+                <p class="p_name">ИМЯ: <span class="name">Иванов</span></p>
+                <p class="p_status">Статус: <span class="status">Живой</span></p>
+                <p class="p_species">Вид: <span class="species">Человек</span></p>
+                <p class="p_gender">Пол: <span class="gender">Мужской</span></p>
+                <p class="p_location">Локация: <span class="location">Земля</span></p>
             </div>
         </div>
     </div>
 
-
-
-
-
     <script>
-           fetch('https://rickandmortyapi.com/api/character')
-          .then((response) => response.json())
-          .then((data) => loadRAM(data))
-          .catch((error) => console.error(error));
+        console.log(loadRAM.results[0].name);
+   /* fetch('https://rickandmortyapi.com/api/character')
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.error(error));    */
 
-          function loadRAM (data) {
-            console.log(data.results[0].name);
-          };
+    
+    const contentEl = document.querySelector(".content");
+    const cardEl = document.querySelector(".card");
+
+    const imgEl = document.querySelector(".content"); 
+    imgEl.src = loadRAM.results[1].image;   
+
+
+
+
+
+
+ 
           
 
 

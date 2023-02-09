@@ -1,4 +1,4 @@
-{
+const loadRAM = {
     "info": {
       "count": 826,
       "pages": 42,
