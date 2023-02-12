@@ -216,7 +216,7 @@ p {
   max-width: 360px;
 }
 
-.bottom_content_item1 div,
+.bottom_content_item div,
 .bottom_content_item2 div,
 .bottom_content_item3 div,
 .bottom_content_item4 div,
@@ -226,7 +226,7 @@ p {
   min-width: 250px;
 }
 
-.bottom_content_item1 div h2,
+.bottom_content_item div h2,
 .bottom_content_item2 div h2,
 .bottom_content_item3 div h2,
 .bottom_content_item4 div h2,
@@ -240,7 +240,7 @@ p {
   color: #000000;
 }
 
-.bottom_content_item1 div p,
+.bottom_content_item div p,
 .bottom_content_item2 div p,
 .bottom_content_item3 div p,
 .bottom_content_item4 div p,
