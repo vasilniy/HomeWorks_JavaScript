@@ -1,9 +1,6 @@
 const contentEl = document.querySelector(".bottom_content");
 const templateEl = document.querySelector(".template_content");
 
-console.log(contentEl);
-console.log(templateEl);
-
 info.product.forEach((prod) => {
   const bottomContentItemEL = templateEl.content
     .querySelector(".bottom_content_item")
