@@ -4,11 +4,12 @@ const buttonProductEL = document.querySelector(".button_product");
 
 const visibleCount = 6;
 let current = visibleCount;
+console.log(info.product.length);
 
 buttonProductEL.addEventListener('click', addProduct);
 
-function addProduct() {
-  if (current + visibleCount > info.product.length) {
+function addProduct() {  
+  if (current > info.product.length) {
     buttonProductEL.textContent = 'Товара больше нет';
     return;
   }
@@ -19,8 +20,11 @@ function addProduct() {
     const bottomContentItemEL = templateEl.content
       .querySelector('.bottom_content_item')
       .cloneNode(true);
-  })
-}
+      
+  
+  });
+  current += visibleCount;  
+};
 
 
 
