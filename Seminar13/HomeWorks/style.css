@@ -317,6 +317,17 @@ margin-top: 24px;
   transition: all 0.3s ease;
 }
 
+.in_basket:hover {
+  color: #e27575;
+  border: 1px dashed #e27575;  
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.in_basket:hover.in_basket_img{
+  color: #e27575;
+}
+
 .button_basket_bottom button{
   position: absolute;
   top: 175px;
