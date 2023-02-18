@@ -358,12 +358,7 @@ margin-top: 24px;
   opacity: 1;
 }
 
-.bottom_content_item1 div h2,
-.bottom_content_item2 div h2,
-.bottom_content_item3 div h2,
-.bottom_content_item4 div h2,
-.bottom_content_item5 div h2,
-.bottom_content_item6 div h2 {
+.heading_fetured {
   font-family: "Lato";
   font-style: normal;
   font-weight: 400;
@@ -372,12 +367,7 @@ margin-top: 24px;
   color: #000000;
 }
 
-.bottom_content_item1 div p,
-.bottom_content_item2 div p,
-.bottom_content_item3 div p,
-.bottom_content_item4 div p,
-.bottom_content_item5 div p,
-.bottom_content_item6 div p {
+.p_fetured {
   font-family: "Lato";
   font-style: normal;
   font-weight: 300;

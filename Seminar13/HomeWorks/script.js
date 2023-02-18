@@ -4,7 +4,9 @@ const buttonProductEL = document.querySelector(".button_product");
 
 const visibleCount = 6;
 let current = visibleCount;
+addProduct();
 console.log(info.product.length);
+
 
 buttonProductEL.addEventListener('click', addProduct);
 
@@ -18,9 +20,19 @@ function addProduct() {
 
   itemsToAdd.forEach((item) => {
     const bottomContentItemEL = templateEl.content
-      .querySelector('.bottom_content_item')
-      .cloneNode(true);
-      
+      .querySelector('.bottom_content_item_card')
+      .cloneNode(true);      
+    
+    //bottomImgBasketEl.innerHTML =  ``;
+    bottomContentItemEL.querySelector('.in_basket').dataset.dd = item.id;
+    bottomContentItemEL.querySelector('.heading_fetured').textContent = item.name;
+    bottomContentItemEL.querySelector('.p_fetured').textContent = item.description;
+    bottomContentItemEL.querySelector('.span_color').textContent = item.price;
+    bottomContentItemEL.querySelector('.img_fetured').src = item.image;
+
+    
+
+    contentEl.appendChild(bottomContentItemEL);
   
   });
   current += visibleCount;  
