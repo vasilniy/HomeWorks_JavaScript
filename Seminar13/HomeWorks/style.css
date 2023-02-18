@@ -420,6 +420,11 @@ footer {
   background-color: #222224;
 }
 
+.section_basket {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
 .section_item1 {
   /*height: 341px;*/
   max-width: 1140px;

@@ -1,18 +1,26 @@
-const contentEl = document.querySelector(".bottom_content");
-const templateEl = document.querySelector(".template_content");
-const buttonProductEL = document.querySelector(".button_product");
 
-const visibleCount = 6;
-let current = visibleCount;
-addProduct();
+document.addEventListener('click', basketDrop); 
+//let count = Object.keys(basketCart).length;
 
-console.log(info.product.length);
 
-buttonProductEL.addEventListener('click', addProduct);
+function basketDrop (e) {  
+  if (e.target.classList.contains('in_basket')){    
+    if (!basketCart[e.target.dataset.id]) {
+      basketCart[e.target.dataset.id] = 1;
+            
+    }
+    else {console.log('уже в корзине'); return;}  
+    
+  };
+};
 
-document.addEventListener('click', e => {
-  console.log(e.target);
-});
+
+
+function addCart (addItem) {
+  const sectionBasketEl = document.querySelector('.section_basket');
+  const CreateCardInBasket = document.createElement('div');
+
+}
 
 /*
 const buttonInBasketEL = document.querySelectorAll('.in_basket');
@@ -22,6 +30,23 @@ buttonInBasketEL.forEach(element => {
   })
 });
 */
+
+
+
+
+
+
+// Показывает карточки при нажатии кнопки "Показать еще"
+
+const contentEl = document.querySelector(".bottom_content");
+const templateEl = document.querySelector(".template_content");
+const buttonProductEL = document.querySelector(".button_product");
+
+const visibleCount = 6;
+let current = visibleCount;
+addProduct();
+
+buttonProductEL.addEventListener('click', addProduct);
 
 function addProduct() {  
   if (current > info.product.length) {
@@ -37,7 +62,7 @@ function addProduct() {
       .cloneNode(true);      
     
     //bottomImgBasketEl.innerHTML =  ``;
-    bottomContentItemEL.querySelector('.in_basket').dataset.dd = item.id;
+    bottomContentItemEL.querySelector('.in_basket').dataset.id = item.id;
     bottomContentItemEL.querySelector('.heading_fetured').textContent = item.name;
     bottomContentItemEL.querySelector('.p_fetured').textContent = item.description;
     bottomContentItemEL.querySelector('.span_color').textContent = item.price;
