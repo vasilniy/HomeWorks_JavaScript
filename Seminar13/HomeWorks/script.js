@@ -2,24 +2,31 @@
 document.addEventListener('click', basketDrop); 
 //let count = Object.keys(basketCart).length;
 
-
 function basketDrop (e) {  
   if (e.target.classList.contains('in_basket')){    
     if (!basketCart[e.target.dataset.id]) {
       basketCart[e.target.dataset.id] = 1;
-            
+      e.target.textContent = 'Добавлено';
+      
+      showCount();
     }
     else {console.log('уже в корзине'); return;}  
     
   };
 };
 
-
+function showCount () {
+  let sum = 0;
+  for (let salary of Object.values(basketCart)) {
+    sum += salary;
+  }
+  console.log(sum);
+};
 
 function addCart (addItem) {
   const sectionBasketEl = document.querySelector('.section_basket');
-  const CreateCardInBasket = document.createElement('div');
-
+  const createCardInBasket = document.createElement('div');
+  createCardInBasket.classList.add('new_item_basket');
 }
 
 /*
