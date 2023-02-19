@@ -18,8 +18,7 @@ function basketDrop (e) {
 
 
 function addCart (addItem) {
-  const sectionBasketEl = document.querySelector('.section_basket');
-  sectionBasketEl.style.padding = 20 +'px';  
+  const sectionBasketEl = document.querySelector('.section_basket');   
   const createCardInBasket = document.createElement('div');
   createCardInBasket.classList.add('new_item_basket');  
 
@@ -68,7 +67,7 @@ function closeCardElement (e) {
       console.log(del.dataset.id);
       if (del.dataset.id == e.target.dataset.id){
         del.remove();        
-        basketCart[e.target.dataset.id] = 0;       
+        basketCart[e.target.dataset.id] = 0;             
         return;
       };
       
