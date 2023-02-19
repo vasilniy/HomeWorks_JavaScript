@@ -423,6 +423,22 @@ footer {
 .section_basket {
   max-width: 1140px;
   margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.new_item_basket{
+  position: relative;
+  width: 340px;
+  box-shadow: 7px 3px 32px -20px #000000;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.close_card {
+  position: absolute;
+  top: 2px;
+  right: 2px;
 }
 
 .section_item1 {

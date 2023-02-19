@@ -7,7 +7,7 @@ function basketDrop (e) {
     if (!basketCart[e.target.dataset.id]) {
       basketCart[e.target.dataset.id] = 1;
       e.target.textContent = 'Добавлено';
-      
+      addCart(e.target.dataset.id);
       console.log(showCount());
     }
     else {console.log('уже в корзине'); return;}  
@@ -15,22 +15,55 @@ function basketDrop (e) {
   };
 };
 
-function showCount () {
-  let sum = 0;
- // if (Object.keys(basketCart).length != 0){
-    for (let salary of Object.values(basketCart)) {
-      sum += salary;
-    }
-    
- // };
-  return sum;
-};
+
 
 function addCart (addItem) {
   const sectionBasketEl = document.querySelector('.section_basket');
+  sectionBasketEl.style.padding = 20 +'px';  
   const createCardInBasket = document.createElement('div');
-  createCardInBasket.classList.add('new_item_basket');
+  createCardInBasket.classList.add('new_item_basket');  
+
+  console.log(basketCart[addItem]);
+  info.product.forEach(e => {
+    if (addItem == e.id){
+      createCardInBasket.dataset.id = addItem;
+      createCardInBasket.innerHTML = `
+      <div class="close_card"><img src="img/closeCard.png"></div>
+      <img class="img_fetured" src="${e.image}">  
+      <h2 class="heading_fetured">${e.name}</h2>
+      <p class="p_fetured">${e.description}</p>
+      <p>Цена: <span class="span_color">${e.price}</span></p>
+      <p>Количество: ${basketCart[addItem]}</p>
+      `;
+    
+    console.log(e);
+    };
+  });
+
+  
+
+  sectionBasketEl.appendChild(createCardInBasket);
 }
+
+function showCount () {
+  let sum = 0;
+  if (Object.keys(basketCart).length != 0){
+    for (let salary of Object.values(basketCart)) {
+      sum += salary;
+    }
+    const navBasketCountEl = document.querySelector('.nav_basket_count');
+    navBasketCountEl.textContent = sum;
+  };
+  return sum;
+};
+
+
+
+
+
+
+
+
 
 /*
 const buttonInBasketEL = document.querySelectorAll('.in_basket');
