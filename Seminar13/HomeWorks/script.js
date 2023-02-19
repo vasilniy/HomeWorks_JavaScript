@@ -1,6 +1,5 @@
 document.addEventListener('click', closeCardElement);
 document.addEventListener('click', basketDrop); 
-//let count = Object.keys(basketCart).length;
 
 function basketDrop (e) {  
   if (e.target.classList.contains('in_basket')){    
@@ -21,8 +20,7 @@ function addCart (addItem) {
   const sectionBasketEl = document.querySelector('.section_basket');   
   const createCardInBasket = document.createElement('div');
   createCardInBasket.classList.add('new_item_basket');  
-
-  console.log(basketCart[addItem]);
+  
   info.product.forEach(e => {
     if (addItem == e.id){
       createCardInBasket.dataset.id = addItem;
@@ -35,9 +33,8 @@ function addCart (addItem) {
       <p class="p_fetured">${e.description}</p>
       <p>Цена: <span class="span_color">${e.price}</span></p>
       <p>Количество: ${basketCart[addItem]}</p>
-      `;
+      `;    
     
-    console.log(e);
     };
   });
 
@@ -59,13 +56,16 @@ function showCount () {
 };
 
 function closeCardElement (e) {
-  if (e.target.classList.contains('close_card_img')){
-    console.log(e.target.dataset.id);
+  if (e.target.classList.contains('close_card_img')){    
     const deleteCard = document.querySelectorAll('.new_item_basket');
     deleteCard.forEach(del => {
-      console.log(del);
-      console.log(del.dataset.id);
       if (del.dataset.id == e.target.dataset.id){
+        const changeButtonText = document.querySelectorAll('.in_basket');
+        changeButtonText.forEach(change => {
+          if (change.dataset.id == e.target.dataset.id) {
+            change.textContent = "В корзину";          
+          };
+        });
         del.remove();        
         basketCart[e.target.dataset.id] = 0;             
         return;
