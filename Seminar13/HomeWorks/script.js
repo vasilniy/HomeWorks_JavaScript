@@ -1,4 +1,4 @@
-
+document.addEventListener('click', closeCardElement);
 document.addEventListener('click', basketDrop); 
 //let count = Object.keys(basketCart).length;
 
@@ -12,7 +12,7 @@ function basketDrop (e) {
     }
     else {console.log('уже в корзине'); return;}  
     
-  };
+  };  
 };
 
 
@@ -28,7 +28,9 @@ function addCart (addItem) {
     if (addItem == e.id){
       createCardInBasket.dataset.id = addItem;
       createCardInBasket.innerHTML = `
-      <div class="close_card"><img src="img/closeCard.png"></div>
+      <div class="close_card">
+      <img class="close_card_img" data-id="${addItem}" src="img/closeCard.png">
+      </div>
       <img class="img_fetured" src="${e.image}">  
       <h2 class="heading_fetured">${e.name}</h2>
       <p class="p_fetured">${e.description}</p>
@@ -57,25 +59,23 @@ function showCount () {
   return sum;
 };
 
-
-
-
-
-
-
-
-
-/*
-const buttonInBasketEL = document.querySelectorAll('.in_basket');
-buttonInBasketEL.forEach(element => {
-  element.addEventListener('click', e => {
-    console.log(e.target);
-  })
-});
-*/
-
-
-
+function closeCardElement (e) {
+  if (e.target.classList.contains('close_card_img')){
+    console.log(e.target.dataset.id);
+    const deleteCard = document.querySelectorAll('.new_item_basket');
+    deleteCard.forEach(del => {
+      console.log(del);
+      console.log(del.dataset.id);
+      if (del.dataset.id == e.target.dataset.id){
+        del.remove();        
+        basketCart[e.target.dataset.id] = 0;       
+        return;
+      };
+      
+    })
+  };
+showCount(); 
+}
 
 
 
