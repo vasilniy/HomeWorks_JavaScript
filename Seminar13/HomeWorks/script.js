@@ -8,7 +8,7 @@ function basketDrop (e) {
       basketCart[e.target.dataset.id] = 1;
       e.target.textContent = 'Добавлено';
       
-      showCount();
+      console.log(showCount());
     }
     else {console.log('уже в корзине'); return;}  
     
@@ -17,10 +17,13 @@ function basketDrop (e) {
 
 function showCount () {
   let sum = 0;
-  for (let salary of Object.values(basketCart)) {
-    sum += salary;
-  }
-  console.log(sum);
+ // if (Object.keys(basketCart).length != 0){
+    for (let salary of Object.values(basketCart)) {
+      sum += salary;
+    }
+    
+ // };
+  return sum;
 };
 
 function addCart (addItem) {
